@@ -1,0 +1,57 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Build"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  coding-standard:
+    name: "Coding Standard"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        extension-name:
+          - "phpstan-doctrine"
+          - "extension-installer"
+          - "phpstan-phpunit"
+          - "phpstan-mockery"
+          - "phpstan-symfony"
+          - "phpdoc-parser"
+          - "phpstan-nette"
+          - "phpstan-webmozart-assert"
+          - "phpstan-beberlei-assert"
+          - "phpstan-deprecation-rules"
+          - "phpstan-dibi"
+          - "phpstan-php-parser"
+          - "phpstan-strict-rules"
+
+    steps:
+      - name: "Checkout extension"
+        uses: actions/checkout@v3
+        with:
+          repository: "phpstan/${{ matrix.extension-name }}"
+
+      - name: "Checkout build-cs"
+        uses: actions/checkout@v3
+        with:
+          path: "build-cs"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          php-version: "8.2"
+
+      - name: "Install dependencies"
+        working-directory: "build-cs"
+        run: "composer install --no-interaction --no-progress"
+
+      - name: "Coding Standard"
+        run: "make cs"
