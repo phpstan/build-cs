@@ -29,7 +29,6 @@ jobs:
           - "phpstan-beberlei-assert"
           - "phpstan-deprecation-rules"
           - "phpstan-dibi"
-          - "phpstan-php-parser"
           - "phpstan-strict-rules"
 
     steps:
