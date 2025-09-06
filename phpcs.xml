@@ -16,6 +16,7 @@
 		<exclude name="Squiz.Commenting.FunctionComment"/>
 		<exclude name="Squiz.PHP.Heredoc.NotAllowed"/>
 		<exclude name="Squiz.WhiteSpace.FunctionSpacing.Before"/>
+		<exclude name="SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable"/>
 	</rule>
 	<rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
 		<properties>
@@ -51,6 +52,8 @@
 	</rule>
 	<rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure.UnusedInheritedVariable"/>
 	<rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator"/>
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator"/>
 	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable"/>
 	<rule ref="SlevomatCodingStandard.ControlStructures.AssignmentInCondition"/>
 	<rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit">
@@ -67,6 +70,17 @@
 
 		</properties>
 	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing">
+		<properties>
+			<property name="linesCountBetweenMembers" value="1"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.MethodSpacing">
+		<properties>
+			<property name="minLinesCount" value="1"/>
+			<property name="maxLinesCount" value="1"/>
+		</properties>
+	</rule>
 	<rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference"/>
 	<rule ref="SlevomatCodingStandard.Functions.StaticClosure"/>
 	<rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
@@ -76,8 +90,12 @@
 	<rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing"/>
 	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable"/>
 	<rule ref="SlevomatCodingStandard.Variables.UselessVariable"/>
-	<!-- Disallow trailing comma in function calls, since this breaks on PHP < 7.3 -->
-	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall"/>
+	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall">
+		<properties>
+			<property name="onlySingleLine" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall"/>
 	<!-- Disallow trailing comma in closure use and function declarations, since this breaks on PHP < 8.0 -->
 	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInClosureUse" />
 	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration" />
@@ -119,11 +137,7 @@
 			<property name="enable" value="true"/>
 		</properties>
 	</rule>
-	<rule ref="SlevomatCodingStandard.Functions.RequireArrowFunction">
-		<properties>
-			<property name="enable" value="true"/>
-		</properties>
-	</rule>
+	<rule ref="SlevomatCodingStandard.Functions.RequireArrowFunction"/>
 	<rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration"/>
 	<exclude-pattern>tests/*/data</exclude-pattern>
 	<exclude-pattern>tests/*/data-attributes</exclude-pattern>
