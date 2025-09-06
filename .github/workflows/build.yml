@@ -30,6 +30,7 @@ jobs:
           - "phpstan-deprecation-rules"
           - "phpstan-dibi"
           - "phpstan-strict-rules"
+          - "phpstan-src"
 
     steps:
       - name: "Checkout extension"
