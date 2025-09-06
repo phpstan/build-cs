@@ -8,12 +8,11 @@
 	<arg name="cache" value="tmp/phpcs"/>
 	<arg value="sp"/>
 
-	<rule ref="build-cs/vendor/consistence-community/coding-standard/Consistence/ruleset.xml">
+	<rule ref="./consistence.xml">
 		<exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat"/>
 		<exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.MissingVariable"/>
 		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation"/>
 		<exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/>
-		<exclude name="Consistence.Exceptions.ExceptionDeclaration"/>
 		<exclude name="Squiz.Commenting.FunctionComment"/>
 		<exclude name="Squiz.PHP.Heredoc.NotAllowed"/>
 		<exclude name="Squiz.WhiteSpace.FunctionSpacing.Before"/>
@@ -87,7 +86,7 @@
 	<rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
 		<properties>
 			<property name="searchAnnotations" value="true"/>
-			<property name="namespacesRequiredToUse" value=""/>
+			<property name="namespacesRequiredToUse" type="array"/>
 			<property name="allowPartialUses" value="true"/>
 			<property name="allowFallbackGlobalFunctions" value="false"/>
 			<property name="allowFallbackGlobalConstants" value="false"/>
@@ -109,7 +108,7 @@
 		</properties>
 	</rule>
 	<rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
-	<rule ref="Consistence.NamingConventions.ValidVariableName.NotCamelCaps"/>
+	<rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
 	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall">
 		<properties>
 			<property name="onlySingleLine" value="true"/>
