@@ -224,7 +224,6 @@
 	</rule>
 	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
 	<rule ref="Squiz.PHP.GlobalKeyword"/>
-	<rule ref="Squiz.PHP.Heredoc"/>
 	<rule ref="Squiz.PHP.InnerFunctions"/>
 	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
 	<rule ref="Squiz.PHP.NonExecutableCode"/>
