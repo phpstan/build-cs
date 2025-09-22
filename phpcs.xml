@@ -80,7 +80,11 @@
 			<property name="maxLinesCount" value="1"/>
 		</properties>
 	</rule>
-	<rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference"/>
+	<rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference">
+		<properties>
+			<property name="enableOnObjects" value="false"/>
+		</properties>
+	</rule>
 	<rule ref="SlevomatCodingStandard.Functions.StaticClosure"/>
 	<rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
 	<rule ref="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator"/>
