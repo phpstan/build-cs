@@ -34,12 +34,12 @@ jobs:
 
     steps:
       - name: "Checkout extension"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: "phpstan/${{ matrix.extension-name }}"
 
       - name: "Checkout build-cs"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: "build-cs"
 
