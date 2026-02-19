@@ -31,6 +31,14 @@ jobs:
           - "phpstan-dibi"
           - "phpstan-strict-rules"
           - "phpstan-src"
+        php-version:
+          - "7.4"
+          - "8.0"
+          - "8.1"
+          - "8.2"
+          - "8.3"
+          - "8.4"
+          - "8.5"
 
     steps:
       - name: "Checkout extension"
@@ -47,7 +55,7 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           coverage: "none"
-          php-version: "8.2"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Install dependencies"
         working-directory: "build-cs"
