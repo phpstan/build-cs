@@ -46,30 +46,60 @@ The coding standard targets **PHP 7.4+** (`php_version` is set to `70400` in `ph
 - **Line endings**: Unix (`\n`)
 - **Encoding**: UTF-8
 - **`declare(strict_types=1)`**: Required on the first line of every file
+- **Short syntax**: `[]` required instead of `array()` and `list()`
+- **Short type casts**: `(int)` not `(integer)`, `(bool)` not `(boolean)`
+- **One statement per line**
+- **Space after type casts**
+- **No inline control structures** (braces always required)
+- **`new` with parentheses** required
+- **Trailing comma** required in multiline arrays
+- **One blank line** between class members and between methods
+- **Class constant visibility** required
+- **Empty lines** around class braces
+- **Trait use** declaration formatting and spacing enforced
+- **No useless parentheses or semicolons**
 
 ### Naming and Namespaces
 - Namespace `PHPStan` is mapped to `src/` and `tests/` directories (type name must match file name)
 - `use` statements must be alphabetically sorted (case-insensitive, PSR-12 compatible)
 - No group `use` declarations
 - No unused `use` statements
+- No useless `use` aliases
 - Global functions and constants must be explicitly imported (no fallback)
 - No superfluous `Abstract` prefix on abstract classes or `Interface` suffix on interfaces
+- camelCase required for method names and variable names
+- Constants must be `UPPER_CASE`
+- `::class` syntax preferred over class name strings
 
 ### Type Hints
 - Parameter, property, and return type hints are enforced
 - Useless PHPDoc annotations (that just duplicate native type hints) are flagged
 - `null` type hint must appear last in union types
+- Short type hints required (`int` not `integer`, `bool` not `boolean`)
+- Nullable type hint required for parameters with `null` default value
 
 ### Code Quality
 - Early exit pattern is encouraged
 - Static closures required where possible
 - Strict comparison operators required (`===`/`!==`, not `==`/`!=`)
+- Logical operators `&&`/`||` required (not `and`/`or`)
 - No Yoda comparisons
 - No `empty()` usage
+- No assignments in conditions
 - Combined assignment operators required where applicable
 - Null coalesce operator (`??`) and null coalesce assignment (`??=`) required where applicable
 - Unused variables are flagged
+- Useless variables are flagged
+- Unused inherited variables passed to closures are flagged
 - Variables in double-quoted strings are disallowed (use `sprintf()` instead)
+- No unnecessary string concatenation
+- Must catch `\Throwable`, not `\Exception`
+- Dead catch blocks are flagged
+- No `global` keyword
+- No inner/nested function declarations
+- No deprecated PHP functions
+- No empty comments
+- Useless `@inheritDoc` comments are flagged
 
 ### Excluded Patterns
 - `tests/*/data` and `tests/*/data-attributes` directories are excluded from checks (these contain test fixture files in the extension repositories)
