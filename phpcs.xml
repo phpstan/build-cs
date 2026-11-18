@@ -6,7 +6,7 @@
 	<arg name="encoding" value="utf-8"/>
 	<arg name="tab-width" value="4"/>
 	<arg name="cache" value="tmp/phpcs"/>
-	<arg name="parallel" value="auto"/>
+	<arg name="parallel" value="4"/>
 	<arg value="sp"/>
 
 	<rule ref="./consistence.xml">
